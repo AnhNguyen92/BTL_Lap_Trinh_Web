@@ -11,7 +11,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
+    margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -362,16 +362,12 @@ textarea {
 
 /* -------------  INDEX PAGE ------------- */
 /* link tham khao https://www.niemvuilaptrinh.com/article/Footer-Snippet-trong-Bootstrap */
-body {
+.header {
     background-color: #000;
 }
 
-.header span {
-    color:  lightseagreen;
-}
-
 .header i {
-    background-color:  #33383b;
+    background-color: #0460ad;
     color: #ffffff;
     font-size: 25px;
     width: 38px;
@@ -399,6 +395,166 @@ body {
 .header p span {
     display:block;
     font-weight: normal;
-    font-size:14px;
+    font-size:12px;
     line-height:2;
+    color: #d4d4d4;
+}
+/* 
+.lower-header {
+    width: 500px;
+    height: 250px;
+    background-image: url(), url(betweengrassandsky.png);
+    background-position: left top, right top;
+    background-repeat: no-repeat;
+}
+*/
+
+.nav-side-menu {
+    overflow: auto;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: 200;
+    background-color: #4b4b4b;
+    position: relative;
+    top: -65px;
+    margin: auto;
+    width: 350px;
+    color: #ffffff;
+}
+
+.nav-side-menu .brand {
+    background-color:#f9c937;
+    line-height: 65px;
+    display: block;
+    padding-left: 70px;
+    font-size: 24px;
+    color: #000000;
+}
+
+.nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 18px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #f9c937;
+    color: #000;
+    width: 40px;
+    text-align: center;
+}
+
+.nav-side-menu ul,
+.nav-side-menu li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    line-height: 65px;
+    cursor: pointer;
+}
+
+.nav-side-menu ul .active,
+.nav-side-menu li .active {
+    background-color: #fde8af;
+}
+
+.nav-side-menu ul .active a,
+.nav-side-menu li .active a {
+    border: none;
+    color:#000000;
+}
+
+.nav-side-menu li {
+    padding: 0 24px;
+}
+
+.nav-side-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    padding: 0 40px;
+    font-size: 24px;
+    border-bottom: 2px solid #8c8c8c;
+}
+
+.nav-side-menu li:hover {
+    background-color: #fde8af;
+    color:#000000;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.nav-side-menu li:hover a {
+    border: none;
+}
+
+.nav-side-menu li a:hover {
+    color:#000000;
+}
+
+/* slider */
+.carousel-indicators .active {
+    background-color: #0460ac;
+}
+
+.carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    top: 44px;
+    margin-left: 3px;
+    text-indent: -999px;
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.who-we-are div p {
+    padding: 0 180px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+.who-we-are-title {
+    font-size:40px;
+    font-weight: bold;
+    color:#045eaa;
+}
+
+.title-tiret {
+    display:inline-block;
+    background-color: #f9c937;
+    width: 25px;
+    height: 4px;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 767px) {
+    .nav-side-menu {
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .brand {
+        text-align: left !important;
+        font-size: 22px;
+        padding-left: 20px;
+        line-height: 50px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    .nav-side-menu .menu-list .menu-content {
+        display: block;
+    }
 }
