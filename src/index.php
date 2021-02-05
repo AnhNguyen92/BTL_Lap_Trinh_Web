@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -51,24 +51,21 @@
                     </div>
                 </div>
             </div>
-
-            <div class="lower-header text-center py-4 text-white" style="background-color: #0064af; width:100%">
-                <h1 style="font-size: 38px;">TAMPA BAY PAVER & HARDSCAPES</h1>
-                <h3 class="py-2" style="font-size: 25px;">The Original and Still The Best Tampa Bay Pavers</h3>
+            <div class="lower-header text-center py-4 text-white">
+                <h1>TAMPA BAY PAVER & HARDSCAPES</h1>
+                <h3 class="py-2">The Original and Still The Best Tampa Bay Pavers</h3>
                 <p>Florida State Certified Builders License - CBC1261248</p>
             </div>
         </header>
         <!-- content -->
         <div class="main row no-gutters">
             <!-- content left -->
-            <div class="col-3" style="background-color: #000000;min-height: 1000px;">
+            <div class="content-left col-3">
                 <!-- navi -->
                 <div class="nav-side-menu">
                     <div class="brand">MENU SITE</div>
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-
                     <div class="menu-list">
-
                         <ul id="menu-content" class="menu-content collapse out">
                             <li class="active">
                                 <a href="#">Home</a>
@@ -92,11 +89,11 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content col-9" style="background-color: #202020;">
+            <div class="main-content col-9">
                 <!-- slider -->
-                <div style="padding: 70.5px 70.5px 0 70.5px;">
-                    <div style="padding:10px; background-color:#ffffff; width:inherit; height:calc((75vw - 161px)/ 1.55);">
-                        <div id="carouselExampleIndicators" style="height: 100%;border: 1px solid;" class="carousel slide" data-ride="carousel">
+                <div class="slider">
+                    <div class="slider-lst">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -104,13 +101,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="..." alt="First slide">
+                                    <img class="d-block w-100" src="images/da-lat-via-he.jpg" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="..." alt="Second slide">
+                                    <img class="d-block w-100" src="images/da-lat-via-he.jpg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="..." alt="Third slide">
+                                    <img class="d-block w-100" src="images/da-lat-via-he.jpg" alt="Third slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -126,25 +123,25 @@
                 </div>
                 <!-- who we are -->
                 <div class="mt-4">
-                    <article class="who-we-are text-white">
-                        <h1 class="py-4 text-center who-we-are-title">
+                    <article>
+                        <div class="py-4 text-center">
                             <div class="title-tiret"></div>
-                            <span>WHO WE ARE</span>
-                        </h1>
-                        <div>
-                            <P>- People have been dreaming in stone for more than 2,000 year. ancient Tomans built roads
+                            <h1 class="article-title">WHO WE ARE</h1>
+                        </div>
+                        <div class="text-white">
+                            <p class="article-content">- People have been dreaming in stone for more than 2,000 year. ancient Tomans built roads
                                 that are still being used today!</P>
-                            <p>- As more and more people discover the enjoyment of outdoor living, one of the top
+                            <p class="article-content">- As more and more people discover the enjoyment of outdoor living, one of the top
                                 priotities is often the construcion of a driveway, walkway, patio, pool area, outdoor
                                 kitchen or a place where they can relax. This area becomes an attractive outdoor room
                                 for work or play. It is a place to read the Sunday paper, eat a meal, play with the
                                 children, enjoy the sun, or entertain friends.</p>
-                            <p>- This outdoor living space is an important asset, increasing the value of a home as well
+                            <p class="article-content">- This outdoor living space is an important asset, increasing the value of a home as well
                                 as reclaim unused areas of lawn and garden. The selection of the color and texture of
                                 the pavers can be chosen to blend with the tone and scale of the hourse. A patio,
                                 walkway or garden wall can connect the house with various parts of the landscape and
                                 define spaces within the yard.</p>
-                            <p>- Whether you entertain social gatherings, Sunday Night Football or relaxing family
+                            <p class="article-content">- Whether you entertain social gatherings, Sunday Night Football or relaxing family
                                 dinner by the pool, we can build an outdoor kitchen that accomodates all your needs.
                                 With our design and construction skills, we can work with any space, large or small,
                                 to build the outdoor experience that you and your family will enjoy for years to come.
@@ -152,8 +149,29 @@
                                 can be built with many of the same amenities of an indoor kitchen along with wood
                                 grills and smokers.</p>
                         </div>
-
                     </article>
+                </div>
+                <!-- process lat gach -->
+                <div class="my-4">
+                </div>
+                <!-- our service -->
+                <div class="my-4">
+                    <article>
+                        <div class="py-4 text-center">
+                            <div class="title-tiret"></div>
+                            <h1 class="article-title">OUR SERVICES</h1>
+                        </div>
+                        <div class="text-center text-white">
+                            <p class="article-content">
+                                We offer elegant products at affordable prices. We are proud to carry the complete line of FlagStone
+                            </p>
+                            <p class="article-content">Paver which can be viewed by <a href="#" target="_blank" class="service-link">clicking here</a>
+                            </p>
+                        </div>
+                    </article>
+                    <div>
+
+                    </div>
                 </div>
             </div>
         </div>
