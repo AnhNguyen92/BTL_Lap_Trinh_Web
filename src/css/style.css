@@ -518,6 +518,10 @@ textarea {
     border-bottom: 2px solid #8c8c8c;
 }
 
+/* .nav-side-menu li a::before {
+    border-bottom: 2px solid #8c8c8c;
+} */
+
 .nav-side-menu li:hover {
     background-color: #fde8af;
     color:#000000;
@@ -570,6 +574,41 @@ textarea {
     color:#045eaa;
     text-shadow: 1px 1px 1px #ffffff;
     display: inline-block;
+    margin-top: 60px;
+}
+
+.triangle {
+    width: 150px;
+    height: 220px;
+    color: #ffffff;
+    border:115px solid black;
+    border-top-color:  #f9c937;
+    border-left-color: #f9c937;
+}
+
+.price-offer {
+    position: relative;
+    color: #000000;
+    font-weight: bold;
+    z-index: 10;
+    -ms-transform: rotate(315deg);
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    -sand-transform: rotate(315deg);
+    transform: rotate(315deg);
+    left: -6px;
+    font-style: italic;
+    top: -196px;
+    font-size: 34px;
+}
+
+.contact-us-tip {
+    color: #045eaa;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 1px #ffffff;
 }
 
 .title-tiret {
@@ -624,7 +663,17 @@ textarea {
     width: 80%;
     margin: auto;
     padding-top: 15px;
- }
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /* width: 100%; */
+    background-color: #000000;
+    color: white;
+    text-align: center;
+}
 
 @media (max-width: 767px) {
     .nav-side-menu {

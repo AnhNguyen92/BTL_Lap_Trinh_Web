@@ -216,7 +216,7 @@
                             <h1 class="article-title">PRICING</h1>
                         </div>
                         <div class="text-center text-white">
-                            <p class="article-content">
+                            <p class="article-content col-10 mx-auto">
                                 With amazing pricing, its now time to get that tired old driveway replaced with Elegant
                                 Brick Pavers. The timeless look and durability of quality brick pavers your home will
                                 get the attention. It deserves along with that curb appeal it needs. Replacing your
@@ -225,6 +225,23 @@
                             </p>
                         </div>
                     </article>
+                    <div class=" col-8 mx-auto" style="width:615px;height:440px;">
+                        <div style="width: 220px;border-top: 220px solid #f9c937;border-right: 220px solid transparent;">
+
+                        </div>
+                    </div>
+                    <div class="col-8 my-4 mx-auto d-flex d-inline">
+                        <div style="padding: 2px;background-color:#ffffff;">
+                            <div>
+                                <img src="images/gach-lat-offer.jpg" alt="">
+                            </div>
+                        </div>    
+                        <div style="position: relative;z-index: 11;left: -609px;top: -4px;">
+                            <div class="triangle"></div>
+                            <div class="price-offer">We offer</div>
+                        </div>
+                        
+                    </div>
                     <div>
                         <div></div>
                         <div class="action-link">
@@ -241,10 +258,10 @@
                         <div class="py-4 text-center">
                             <div class="title-tiret"></div>
                             <h1 class="article-title">CONTACT US</h1>
-                            <h3>FOR FREE SAME DAY ESTIMATES</h3>
+                            <h3 class="contact-us-tip">FOR FREE SAME DAY ESTIMATES</h3>
                         </div>
                         <div class="text-center text-white">
-                            <p class="article-content">
+                            <p class="article-content col-10 mx-auto">
                                 What to expect at your paver estimate, we will be able to tell you the exact price to
                                 complete your job without surprise and extras. Our qualified staff will offer you a
                                 price guarantee and schedule your project to be completed on a date that works for 
@@ -263,7 +280,20 @@
             </div>
         </div>
     </div>
-
+    <!-- footer -->
+    <footer class="footer">
+        <div>GET SOCIAL WITH US</div>
+        <div>
+            <ul>
+                <li><a class="icoFacebook" href="https://www.facebook.com/priyank.agarwal1205" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="icoInstagram" href="https://www.instagram.com/priyank.agarwal1205/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="icoTwitter" href="https://twitter.com/priyank1205" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="icoLinkedin" href="https://www.linkedin.com/in/priyank1205" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="icoTwitter" href="https://www.pinterest.com" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                <li><a class="icoLinkedin" href="https://www.snapchat.com" title="Snapchat"><i class="fa fa-snapchat"></i></a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>
