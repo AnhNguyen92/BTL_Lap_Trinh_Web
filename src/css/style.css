@@ -669,10 +669,57 @@ textarea {
     position: fixed;
     left: 0;
     bottom: 0;
-    /* width: 100%; */
+    width: 100%;
     background-color: #000000;
     color: white;
     text-align: center;
+}
+
+.footer h3 {
+    font-size: 24px;
+}
+
+.footer ul li {
+    display: inline-block;
+}
+
+.footer i {
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    padding: 1em;
+    position: relative;
+    background: transparent;
+    margin: 5px;
+}
+
+.fa-facebook:hover {
+    color:#3b5998;
+    background-color: #ffffff;
+}
+
+.fa-instagram:hover {
+    color:#8a3ab9;
+    background-color: #ffffff;
+}
+
+.fa-twitter:hover {
+    color: #00acee;
+    background-color: #ffffff;
+}
+.fa-linkedin:hover {
+    color:#0e76a8;
+    background-color: #ffffff;
+}
+
+.fa-pinterest:hover {
+    color:#c8232c;
+    background-color: #ffffff;
+}
+
+.fa-snapchat:hover {
+    color:#FFFC00;
+    background-color: #ffffff;
 }
 
 @media (max-width: 767px) {

@@ -279,21 +279,22 @@
                 </div>
             </div>
         </div>
+        <!-- footer -->
+        <footer class="footer p-5">
+            <div><h3>GET SOCIAL WITH US</h3></div>
+            <div>
+                <ul>
+                    <li><a class="icoFacebook" href="https://www.facebook.com/priyank.agarwal1205" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="icoInstagram" href="https://www.instagram.com/priyank.agarwal1205/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="icoTwitter" href="https://twitter.com/priyank1205" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="icoLinkedin" href="https://www.linkedin.com/in/priyank1205" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="icoTwitter" href="https://www.pinterest.com" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a class="icoLinkedin" href="https://www.snapchat.com" title="Snapchat"><i class="fa fa-snapchat"></i></a></li>
+                </ul>
+            </div>
+        </footer>
     </div>
-    <!-- footer -->
-    <footer class="footer">
-        <div>GET SOCIAL WITH US</div>
-        <div>
-            <ul>
-                <li><a class="icoFacebook" href="https://www.facebook.com/priyank.agarwal1205" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="icoInstagram" href="https://www.instagram.com/priyank.agarwal1205/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                <li><a class="icoTwitter" href="https://twitter.com/priyank1205" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="icoLinkedin" href="https://www.linkedin.com/in/priyank1205" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                <li><a class="icoTwitter" href="https://www.pinterest.com" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                <li><a class="icoLinkedin" href="https://www.snapchat.com" title="Snapchat"><i class="fa fa-snapchat"></i></a></li>
-            </ul>
-        </div>
-    </footer>
+    
 </body>
 
 </html>
