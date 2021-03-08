@@ -665,8 +665,28 @@ textarea {
     padding-top: 15px;
 }
 
+.rotate {
+    transform: rotate(-45deg);  
+    /* Safari */
+    -webkit-transform: rotate(-45deg);  
+    /* Firefox */
+    -moz-transform: rotate(-45deg);
+    /* IE */
+    -ms-transform: rotate(-45deg);
+    /* Opera */
+    -o-transform: rotate(-45deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    display: block;
+    left: 0px;
+    top: -170px;
+    position: relative;
+    font-size: 40px;
+    width: 200px;
+  }
+
 .footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
@@ -691,6 +711,10 @@ textarea {
     position: relative;
     background: transparent;
     margin: 5px;
+}
+
+.footer .fa-facebook {
+    width: 51px;
 }
 
 .fa-facebook:hover {
