@@ -441,12 +441,16 @@ textarea {
     padding: 10px;
     background-color:#ffffff;
     width: inherit;
-    height: 820px;
+    /* height: 820px; */
 }
 
 #carouselExampleIndicators {
     height: 100%;
     /* border: 1px solid; */
+}
+
+.carousel-item img {
+    width: 100%;
 }
 
 .nav-side-menu {
