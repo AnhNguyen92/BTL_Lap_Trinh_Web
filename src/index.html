@@ -66,7 +66,7 @@
                     <div class="brand">MENU SITE</div>
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
                     <div class="menu-list">
-                        <ul id="menu-content" class="menu-content collapse out">
+                        <ul id="menu-content" class="menu-content collapse show">
                             <li class="active">
                                 <a href="#">Home</a>
                             </li>
@@ -88,6 +88,13 @@
                         </ul>
                     </div>
                 </div>
+                <div>
+
+                </div>
+                <div class="nav-last-item">
+                    <!-- <img src="images/index/last-nav-item.jpg" alt="image"> -->
+                    <div class="overlay"></div>
+                </div>
             </div>
             <div class="main-content col-9">
                 <!-- slider -->
@@ -98,16 +105,20 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block" src="images/da-lat-via-he.jpg" alt="First slide">
+                                    <img class="d-block" src="images/index/carousel/01.jpg" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block" src="images/da-lat-via-he.jpg" alt="Second slide">
+                                    <img class="d-block" src="images/index/carousel/02.jpg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block" src="images/da-lat-via-he.jpg" alt="Third slide">
+                                    <img class="d-block" src="images/index/carousel/03.jpg" alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block" src="images/index/carousel/04.jpg" alt="Four slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -122,7 +133,7 @@
                     </div>
                 </div>
                 <!-- who we are -->
-                <div class="mt-4">
+                <div class="mt-4 mb-5">
                     <article>
                         <div class="py-4 text-center">
                             <div class="title-tiret"></div>
@@ -152,10 +163,13 @@
                     </article>
                 </div>
                 <!-- brick process -->
-                <div class="my-4">
+                <div class="d-flex">
+                    <div class="col-4 p-0"><img class="w-100" src="images/index/who-we-are/01.jpg" alt="image"></div>
+                    <div class="col-4 p-0"><img class="w-100" src="images/index/who-we-are/02.jpg" alt="image"></div>
+                    <div class="col-4 p-0"><img class="w-100" src="images/index/who-we-are/03.jpg" alt="image"></div>
                 </div>
                 <!-- our service -->
-                <div class="my-4 our-service">
+                <div class="our-service">
                     <article>
                         <div class="py-4 text-center">
                             <div class="title-tiret"></div>
@@ -171,11 +185,11 @@
                         </div>
                     </article>
                     <div class="service-content">
-                        <div class="service=img-lst row px-5">
+                        <div class="service=img-lst d-flex px-auto">
                             <div class="service-img-item col-4">
                                 <div>
-                                    <div class="service-img-wrapper" style="padding:5px; background-color:#ffffff;">
-                                        <img style="width: 100%;" src="images/da-lat-via-he.jpg" alt="image">
+                                    <div class="service-img-wrapper">
+                                        <img src="images/index/our-service/01.jpg" alt="image">
                                     </div>
                                 </div>
                                 <div class="service-item-text">
@@ -184,8 +198,8 @@
                             </div>
                             <div class="service-img-item col-4">
                                 <div>
-                                    <div class="service-img-wrapper" style="padding:5px; background-color:#ffffff;">
-                                        <img style="width: 100%;" src="images/da-lat-via-he.jpg" alt="image">
+                                    <div class="service-img-wrapper">
+                                        <img src="images/index/our-service/02.jpg" alt="image">
                                     </div>
                                 </div>
                                 <div>
@@ -194,8 +208,8 @@
                             </div>
                             <div class="service-img-item col-4">
                                 <div>
-                                    <div class="service-img-wrapper" style="padding:5px; background-color:#ffffff;">
-                                        <img style="width: 100%;" src="images/da-lat-via-he.jpg" alt="image">
+                                    <div class="service-img-wrapper">
+                                        <img src="images/index/our-service/03.jpg" alt="image">
                                     </div>
                                 </div>
                                 <div>
@@ -225,58 +239,31 @@
                             </p>
                         </div>
                     </article>
-                    <div class=" col-8 mx-auto" style="width:615px;height:440px;">
-                        <div style="width: 220px;border-top: 220px solid #f9c937;border-right: 220px solid transparent;">
+                    <div class=" col-8 mx-auto price-offer-block">
+                        <div class="outer-triangle">
                         </div>
-                        <div style="background-color: #ffffff;width: calc(100% - 10px);padding: 2px;height: calc(100% - 10px);top: -215px;position: relative;left: 5px;">
-                            <div style="background-image:url('images/download.jpeg');width: 100%;height: 100%;background-repeat: no-repeat;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;position: relative;opacity: 0.5;">
+                        <div class="middle-border">
+                            <div class="price-offer-bg">
+                                <div class="col-8 pt-5 po-detail">
+                                    <span class="po-tip">As low as</span>
+                                    <span class="po-unit">$</span>
+                                    <span class="po-price">6</span>
+                                    <span class="po-price-duration">.00</span>
+                                    <div class="col-8 ml-auto text-right fs-40">Per Sq/Ft</div>
+                                </div>
+                                <div class="mx-4">
+                                    <ul class="dashes">
+                                        <li>Including Installation and Materials</li>
+                                        <li>Custom brick paver hardscape designs: Pools, Patios, Walkways, Driveways, Outdoor Kitchens, and even your Porch or Hot Tub Area.</li>
+                                        <li>FREE consultations and guaranteed pricing contracts knowing your projects exact cost just got easier.</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div style="width: 199px;border-top: 206px solid #f9c937;border-right: 206px solid transparent;top: -426px;position: relative;">
+                            <div class="rotate-wrapper">
                                 <span class="rotate">We Offer</span>
                             </div>
-                            <div>
-                                <span>As low as</span>
-                                <div>
-                                    <div>$ <span>6.00</span></div>
-                                    <div>Per Sq/Ft</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div class="col-6"></div>
-                                <div class="col-6 d-flex">
-                                    <span>As low as</span>
-                                    <div>
-                                        <div>$ <span>6.00</span></div>
-                                        <div>Per Sq/Ft</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div></div>
                         </div>
                     </div>
-                    <!-- <div class=" col-8 mx-auto" style="width:615px;height:440px;">
-                        <div style="width: 220px;border-top: 220px solid #f9c937;border-right: 220px solid transparent;">
-                        </div>
-                        <div style="background-color: #ffffff;width: calc(100% - 10px);padding:5px;height: calc(100% - 10px);top: -215px;position: relative;">
-                            <div style="background-image:url('images/download.jpeg');width: 100%;height: 100%;background-repeat: no-repeat;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;position: relative;opacity: 0.5;">
-                            </div>
-                            <div style="width: 210px;border-top: 210px solid #f9c937;border-right: 210px solid transparent;"></div>
-                        </div>
-                        
-                    </div> -->
-                    <!-- <div class="col-8 my-4 mx-auto d-flex d-inline">
-                        <div style="padding: 2px;background-color:#ffffff;">
-                            <div>
-                                <img src="images/gach-lat-offer.jpg" alt="">
-                            </div>
-                        </div>    
-                        <div style="position: relative;z-index: 11;left: -609px;top: -4px;">
-                            <div class="triangle"></div>
-                            <div class="price-offer">We offer</div>
-                        </div>
-                    </div> -->
                     <div>
                         <div></div>
                         <div class="action-link">
@@ -285,8 +272,8 @@
                     </div>
                 </div>
                 <!-- contact us -->
-                <div class="my-4 contact-us" style="background-color: #181818;">
-                    <div style="background-color: #f9c937;height:55px; text-align:center;line-height:55px;font-size:20px;font-weight:bold;">
+                <div class="contact-us-info">
+                    <div class="contact-number">
                         Call Us NOW: 727 - 342 - 3241
                     </div>
                     <article>

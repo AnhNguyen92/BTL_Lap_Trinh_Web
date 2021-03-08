@@ -438,10 +438,10 @@ textarea {
 }
 
 .slider-lst {
-    padding:10px;
+    padding: 10px;
     background-color:#ffffff;
-    width:inherit;
-    height:calc((75vw - 161px)/ 1.55);
+    width: inherit;
+    height: 820px;
 }
 
 #carouselExampleIndicators {
@@ -602,6 +602,19 @@ textarea {
     top: -196px;
     font-size: 34px;
 }
+.contact-us-info {
+    background-color: #181818;
+    height: 600px;
+}
+
+.contact-number {
+    background-color: #f9c937;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
 .contact-us-tip {
     color: #045eaa;
@@ -631,9 +644,19 @@ textarea {
     color:#ddb435;
 }
 
+.service-img-wrapper {
+    padding: 5px;
+    background-color:#ffffff;
+    /* height: 196px; */
+}
+
+.service-img-wrapper img {
+    width: 100%;
+}
+
 .action-link {
-    margin-top:100px;
-    padding-bottom: 100px;
+    margin-top:70px;
+    padding-bottom: 70px;
 }
 
 .action-link a {
@@ -665,6 +688,85 @@ textarea {
     padding-top: 15px;
 }
 
+.price-offer-block {
+    width: 615px;
+    height: 440px;
+}
+
+.outer-triangle {
+    width: 220px;
+    border-top: 220px solid #f9c937;
+    border-right: 220px solid transparent;
+}
+
+.middle-border {
+    background-color: #ffffff;
+    width: calc(100% - 10px);
+    padding: 2px;
+    height: calc(100% - 10px);
+    top: -215px;
+    position: relative;
+    left: 5px;
+}
+
+.price-offer-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),url('../images/index/pricing.jpg');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.inner-triangle {
+    width: 199px;
+    border-top: 206px solid #f9c937;
+    border-right: 206px solid transparent;
+    top: -426px;position: relative;
+}
+
+.po-detail {
+    margin-left: auto;
+    color: white;
+    font-size: 30px;
+}
+
+.po-tip {
+    vertical-align: top;
+}
+
+.po-unit {
+    font-size: 40px;
+    vertical-align: top;
+    font-weight: 800;
+    margin-left: 20px;
+}
+
+.po-price {
+    font-size: 107px;
+    font-weight: 600;
+}
+
+.po-price-duration {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.rotate-wrapper {
+    width: 199px;
+    border-top: 206px solid #f9c937;
+    border-right: 206px solid transparent;
+    top: -426px;
+    position: relative;
+}
+
 .rotate {
     transform: rotate(-45deg);  
     /* Safari */
@@ -683,7 +785,38 @@ textarea {
     position: relative;
     font-size: 40px;
     width: 200px;
-  }
+}
+
+.dashes {
+    list-style: none;
+    padding-left: 10px;
+    color: #ffffff;
+    /* padding-left: 1em; */
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.dashes li::before {
+    content: "-";
+    text-indent: -15px;
+    display: inline-block;
+}
+
+.nav-last-item {
+    position: absolute;
+    bottom: 0;
+    height: 600px;
+    background: url('../images/index/last-nav-item.jpg');
+    overflow: hidden;
+    width: 100%;
+    background-position: 40% 100%;
+}
+
+.overlay {
+    background: rgba(0, 82, 215, 0.65);
+    width: 100%;
+    height: 100%;
+}
 
 .footer {
     /* position: fixed; */
@@ -693,6 +826,7 @@ textarea {
     background-color: #000000;
     color: white;
     text-align: center;
+    border-top: 1px solid #ffffff;
 }
 
 .footer h3 {
