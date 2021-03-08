@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Admin - Bài tập lớn Lập trình Web - 2020-2021</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/449b38c131.js" crossorigin="anonymous"></script>
+    <style>
+        header {
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            line-height: 50px;
+        }
+
+        form {
+            width:400px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .fa {
+            color: #4f9dc6;
+        }
+
+        footer {
+            position: fixed;
+            height: 50px;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #000;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-0">
+
+        <header class="px-3">SB Admin</header>
+        <div>
+            <div class="text-center my-5"><h3>DANG NHAP HE THONG</h3></div>
+            <form class="justify-content-center" action="post">
+                <div class="form-group row">
+                    <div class="mr-2 my-auto"><i class="fa fa-user" aria-hidden="true"></i></div>    
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="username" placeholder="Tai khoan dang nhap">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mr-2 my-auto"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" placeholder="Mat khau">
+                    </div>
+                </div>
+                <div class="text-cennter mx-auto">
+                    <input class="btn btn-md" style="color:#fff;background-color: #77b71b;" type="submit" value="DANG NHAP">
+                </div>
+            </form>
+        </div>
+        <footer class="footer">Copyright © BTL Lap Trinh Web 2021</footer>
+    </div>
+</body>
+
+</html>
