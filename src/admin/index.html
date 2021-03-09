@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lý trang chủ - Bài tập lớn Lập trình Web - 2020-2021</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="../css/admin/style.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .admin-title {
+            background-color: #d8eeeb;
+            margin: 0;
+        }
+
+        .nav-search {
+            background-color: #f7f7f7;
+        }
+
+        .btn-search {
+            background-color: #77b71b;
+        }
+
+        .add-account a,
+        i {
+            color: #86a3f5;
+        }
+
+        .add-account a:hover {
+            text-decoration: none;
+        }
+
+        .pagination {
+            margin: 0;
+        }
+
+        td.action {
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Company Introduction</a>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user fa-fw pr-2"></i><span>Quang Cảnh</span></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">Setting</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="user-list.html">
+                            <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
+                            User
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Website</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
+                            Index
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Intro
+                        </a>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>
+                            Product Service
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Processing
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fa fa-picture-o"></i></div>
+                            Gallery
+                        </a>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fa fa-credit-card"></i></div>
+                            Pricing
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fa fa-map"></i></div>
+                            Contact
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-0">
+                    <h3 class="pl-3 py-3 admin-title">QUẢN LÝ TRANG CHỦ</h3>
+                    <div class="px-4">
+                        <form>
+                            <div class="form-group">
+                                <label>Who We Are 1 </label>
+                                <textarea class="form-control" rows="4" cols="50">- People have been dreaming in stone for more than 2,000 year. ancient Tomans built roads that are still being used today!</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Who We Are 2</label>
+                                <textarea class="form-control" rows="4" cols="50">- As more and more people discover the enjoyment of outdoor living, one of the top priorities is often the construcion of a driveway, walkway, patio, pool area, outdoor kitchen or a place where they can relax. This area becomes an attractive outdoor room for work or play. It is a place to read the Sunday paper, eat a meal, play with the children, enjoy the sun, or entertain friends.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Who We Are 3</label>
+                                <textarea class="form-control" rows="4" cols="50">- This outdoor living space is an important asset, increasing the value of a home as well as reclaim unused areas of lawn and garden. The selection of the color and texture of the pavers can be chosen to blend with the tone and scale of the house. A patio, walkway or garden wall can connect the house with various parts of the landscape and define spaces within the yard.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Who We Are 4</label>
+                                <textarea class="form-control" rows="4" cols="50">- Whether you entertain social gatherings, Sunday Night Football or relaxing family dinner by the pool, we can build an outdoor kitchen that accomodates all your needs. With our design and construction skills, we can work with any space, large or small, to build the outdoor experience that you and your family will enjoy for years to come. Our designed kitchens are made to fit into your outside hardscape. A patio kitchen can be built with many of the same amenities of an indoor kitchen along with wood grills and smokers.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="ourService">Our Service</label>
+                                <textarea class="form-control" rows="4" cols="50">We offer elegant products at affordable prices. We are proud to carry the complete line of FlagStone</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Pricing</label>
+                                <textarea class="form-control" rows="4" cols="50">With amazing pricing, its now time to get that tired old driveway replaced with Elegant Brick Pavers. The timeless look and durability of quality brick pavers your home will get the attention. It deserves along with that curb appeal it needs. Replacing your Driveway with Brick Pavers doesn't just make it look better it also adds a longer life than concrete without cracking or fading.</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </form>
+
+                    </div>
+                </div>
+            </main>
+            <footer class="footer py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright © BTL Lập Trình Web 2021</div>
+                        <div>
+                            <a href="#">Chính sách bảo mật</a>
+                            &middot;
+                            <a href="#">Điều khoản &amp; Điều kiện</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
