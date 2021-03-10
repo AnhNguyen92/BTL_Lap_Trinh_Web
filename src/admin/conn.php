@@ -1,7 +1,12 @@
 <?php
-	//Kết nối
-	$connect = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die('Not connected DB!');
-	if(!$conn){
-		die("Error: Không kết nối được tới cơ sở dữ liệu!");
-	}
+	$username = "root";
+    $password = "";
+    $servername = "localhost:3306";
+    $dbname = "company_intro";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>

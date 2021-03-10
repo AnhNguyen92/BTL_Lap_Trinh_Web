@@ -1,3 +1,6 @@
+<?php
+    include 'conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -190,8 +193,8 @@
                                             <td>Kich hoat</td>
                                             <td>Admin</td>
                                             <td class="action">
-                                                <a href="#" class="pr-3"><i class="fa fa-edit"></i></a>
-                                                <a href="#"><i class="fa fa-trash text-danger"></i></a>
+                                                <a href="#editUserModal" data-toggle="modal" class="pr-3"><i class="fa fa-edit" title="Chỉnh sửa" data-toggle="tooltip"></i></a>
+                                                <a href="#deleteUserModal" data-toggle="modal"><i class="fa fa-trash text-danger" data-toggle="tooltip" title="Xóa"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -311,19 +314,46 @@
                     <div class="modal-content">
                         <form id="car_form">
                             <div class="modal-header">
-                                <h4 class="modal-title text-uppercase text-center mx-auto">Thêm xe mới</h4>
+                                <h4 class="modal-title text-uppercase text-center mx-auto">Thêm tài khoản</h4>
                                 <button type="button" class="close ml-0" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label>Tên <span class="text-danger">*</span></label>
-                                    <input type="text" id="name" name="name" minlength="5" maxlength="40" class="form-control" required>
-                                    <small id="error-name" class="d-none error-name form-text text-danger">Tên xe phải có độ dài từ 5 đến 40 ký tự!</small>
+                                    <label>Tài khoản <span class="text-danger">*</span></label>
+                                    <input type="text" id="name" name="username" minlength="5" maxlength="40" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Năm <span class="text-danger">*</span></label>
-                                    <input type="number" id="year" min="1990" max="2015" name="year" class="form-control" required>
-                                    <small id="error-year" class="d-none error-year form-text text-danger">Năm sản xuất phải nằm trong khoảng từ 1990 tới 2015!</small>
+                                    <label>Mật khẩu <span class="text-danger">*</span></label>
+                                    <input type="password" id="password" name="password" minlength="5" maxlength="40" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Họ</label>
+                                    <input type="text" id="lname" name="last_name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên</label>
+                                    <input type="text" id="fname" name="first_name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày sinh:</label>
+                                    <div id="datepicker" name="birthday" class="input-group date" data-date-format="dd-mm-yyyy">
+                                        <input class="form-control" type="date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giới tính</label>
+                                    <select class="custom-select" name="gender">
+                                        <option value="male">Nam</option>
+                                        <option value="female">Nữ</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quyền</label>
+                                    <select class="custom-select" name="role">
+                                        <option value="admin">Quản trị</option>
+                                        <option value="regular_user" selected>Người dùng</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -341,22 +371,48 @@
                     <div class="modal-content">
                         <form id="update_form">
                             <div class="modal-header">
-                                <h4 class="modal-title text-uppercase text-center mx-auto">Chỉnh sửa thông tin xe</h4>
+                                <h4 class="modal-title text-uppercase text-center mx-auto">Chỉnh sửa tài khoản</h4>
                                 <button type="button" class="close ml-0" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" id="id_u" name="id" class="form-control" required>
                                 <div class="form-group">
-                                    <label>Tên <span class="text-danger">*</span></label>
-                                    <input type="text" id="name_u" name="name" minlength="5" maxlength="40" class="form-control" required>
-                                    <small id="error-name-u" class="d-none error-name-u form-text text-danger">Tên xe phải có độ dài từ 5 đến 40 ký tự!</small>
+                                    <label>Tài khoản <span class="text-danger">*</span></label>
+                                    <input type="text" id="uname" name="username" readonly minlength="6" maxlength="100" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Năm <span class="text-danger">*</span></label>
-                                    <input type="number" id="year_u" min="1990" max="2015" name="year" class="form-control" required>
-                                    <small id="error-year-u" class="d-none error-year-u form-text text-danger">Năm sản xuất phải nằm trong khoảng từ 1990 tới 2015!</small>
+                                    <label>Mật khẩu <span class="text-danger">*</span></label>
+                                    <input type="password" id="u_password" name="password" minlength="6" maxlength="100" class="form-control" required>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label>Họ</label>
+                                    <input type="text" id="ulname" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên</label>
+                                    <input type="text" id="ufname" name="first_name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày sinh:</label>
+                                    <div id="datepicker" name="ubirthday" class="input-group date" data-date-format="dd-mm-yyyy">
+                                        <input class="form-control" type="date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giới tính</label>
+                                    <select class="custom-select" name="ugender">
+                                        <option value="male">Nam</option>
+                                        <option value="female">Nữ</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quyền</label>
+                                    <select class="custom-select" name="urole">
+                                        <option value="admin">Quản trị</option>
+                                        <option value="regular_user" selected>Người dùng</option>
+                                    </select>
+                                </div>
                             <div class="modal-footer">
                                 <input type="hidden" value="2" name="type">
                                 <input type="button" class="btn btn-light" data-dismiss="modal" value="Hủy bỏ">
