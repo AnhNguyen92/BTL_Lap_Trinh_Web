@@ -1,3 +1,24 @@
+<?php
+include 'conn.php';
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $wwap1 = mysqli_real_escape_string($conn, $_POST["whoWeAreP1"]);
+    $wwap2 = mysqli_real_escape_string($conn, $_POST["whoWeAreP2"]);
+    $wwap3 = mysqli_real_escape_string($conn, $_POST["whoWeAreP3"]);
+    $wwap4 = mysqli_real_escape_string($conn, $_POST["whoWeAreP4"]);
+    $ourService = mysqli_real_escape_string($conn, $_POST["ourService"]);
+    $pricing = mysqli_real_escape_string($conn, $_POST["pricing"]);
+    $contactUs = mysqli_real_escape_string($conn, $_POST["contactUs"]);
+    $sql = "Update `index_page` set `who_we_are_p1`='" . $wwap1 . "', `who_we_are_p2`='" . $wwap2 
+    . "', `who_we_are_p3`='" . $wwap3 . "', `who_we_are_p4`='" . $wwap4 . "', `our_service`='" 
+    . $ourService . "', `pricing`='" . $pricing . "', `contact_us`='" . $contactUs . "' where `id`=1;";
+    
+    if (!mysqli_query($conn, $sql)) {
+        echo "Error updating record: " . mysqli_error($conn);
+        echo "<script>console.log('Debug Objects: " . mysqli_error($conn) . "' );</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,43 +27,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link href="../css/admin/style.css" rel="stylesheet" type="text/css">
-
-    <style>
-        .admin-title {
-            background-color: #d8eeeb;
-            margin: 0;
-        }
-
-        .nav-search {
-            background-color: #f7f7f7;
-        }
-
-        .btn-search {
-            background-color: #77b71b;
-        }
-
-        .add-account a,
-        i {
-            color: #86a3f5;
-        }
-
-        .add-account a:hover {
-            text-decoration: none;
-        }
-
-        .pagination {
-            margin: 0;
-        }
-
-        td.action {
-            vertical-align: middle;
-            text-align: center;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="../css/style-admin.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="sb-nav-fixed">
+    <?php
+        if (isset($_SESSION["username"])) {
+    ?>
+    <?php
+        $sql = "select * from index_page where id=1";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Company Introduction</a>
         <!-- Navbar-->
@@ -50,7 +50,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user fa-fw pr-2"></i><span>Quang Cảnh</span></a>
+                    <i class="fas fa-user fa-fw pr-2"></i><span class="text-white"><?php echo $_SESSION["username"]; ?></span></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">Setting</a>
                     <a class="dropdown-item" href="#">Profile</a>
@@ -66,38 +66,34 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="user-list.html">
+                        <a class="nav-link" href="users.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
-                            User
+                            Người dùng
                         </a>
                         <div class="sb-sidenav-menu-heading">Website</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" style="color:#fff;" href="index.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
-                            Index
+                            Trang chủ
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="about-us.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Intro
+                            Về chúng tôi
                         </a>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="service-info.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>
-                            Product Service
+                            Thông tin dịch vụ
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="process-paving.php">
+                            <div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>
+                            Quy trình lát gạch
+                        </a>
+                        <a class="nav-link" href="pricing.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Processing
+                            Bảng giá
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="contact-us.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-picture-o"></i></div>
-                            Gallery
-                        </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fa fa-credit-card"></i></div>
-                            Pricing
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fa fa-map"></i></div>
-                            Contact
+                            Liên hệ
                         </a>
                     </div>
                 </div>
@@ -108,28 +104,28 @@
                 <div class="container-fluid px-0">
                     <h3 class="pl-3 py-3 admin-title">QUẢN LÝ TRANG CHỦ</h3>
                     <div class="px-4 mt-4">
-                        <form>
+                        <form id="indexFrm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <div>
                                 <h5>Who We Are</h5>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Đoạn văn 1</label>
-                                    <textarea class="form-control" rows="4" cols="50">- People have been dreaming in stone for more than 2,000 year. ancient Tomans built roads that are still being used today!</textarea>
+                                    <textarea class="form-control" name="whoWeAreP1" rows="4" cols="50" ><?php echo $row['who_we_are_p1'] ?></textarea>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Đoạn văn 2</label>
-                                    <textarea class="form-control" rows="4" cols="50">- As more and more people discover the enjoyment of outdoor living, one of the top priorities is often the construcion of a driveway, walkway, patio, pool area, outdoor kitchen or a place where they can relax. This area becomes an attractive outdoor room for work or play. It is a place to read the Sunday paper, eat a meal, play with the children, enjoy the sun, or entertain friends.</textarea>
+                                    <textarea class="form-control" name="whoWeAreP2" rows="4" cols="50" ><?php echo $row['who_we_are_p2'] ?></textarea>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Đoạn văn 3</label>
-                                    <textarea class="form-control" rows="4" cols="50">- This outdoor living space is an important asset, increasing the value of a home as well as reclaim unused areas of lawn and garden. The selection of the color and texture of the pavers can be chosen to blend with the tone and scale of the house. A patio, walkway or garden wall can connect the house with various parts of the landscape and define spaces within the yard.</textarea>
+                                    <textarea class="form-control" name="whoWeAreP3" rows="4" cols="50" ><?php echo $row['who_we_are_p3'] ?></textarea>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Đoạn văn 4</label>
-                                    <textarea class="form-control" rows="4" cols="50">- Whether you entertain social gatherings, Sunday Night Football or relaxing family dinner by the pool, we can build an outdoor kitchen that accomodates all your needs. With our design and construction skills, we can work with any space, large or small, to build the outdoor experience that you and your family will enjoy for years to come. Our designed kitchens are made to fit into your outside hardscape. A patio kitchen can be built with many of the same amenities of an indoor kitchen along with wood grills and smokers.</textarea>
+                                    <textarea class="form-control" name="whoWeAreP4" rows="4" cols="50" ><?php echo $row['who_we_are_p4'] ?></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -137,16 +133,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="ourService">Đoạn văn</label>
-                                <textarea class="form-control" rows="2" cols="50">We offer elegant products at affordable prices. We are proud to carry the complete line of FlagStone</textarea>
+                                <textarea class="form-control" name="ourService" rows="4" cols="50" ><?php echo $row['our_service'] ?></textarea>
                             </div>
                             <div class="mt-2">
                                 <h5>Pricing</h5>
                             </div>
                             <div class="form-group">
                                 <label for="service">Đoạn văn</label>
-                                <textarea class="form-control" rows="4" cols="50">With amazing pricing, its now time to get that tired old driveway replaced with Elegant Brick Pavers. The timeless look and durability of quality brick pavers your home will get the attention. It deserves along with that curb appeal it needs. Replacing your Driveway with Brick Pavers doesn't just make it look better it also adds a longer life than concrete without cracking or fading.</textarea>
+                                <textarea class="form-control" name="pricing" rows="4" cols="50" ><?php echo $row['pricing'] ?></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Lưu</button>
+                            <div class="mt-2">
+                                <h5>Contact Us</h5>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Đoạn văn</label>
+                                <textarea class="form-control" name="contactUs" rows="4" cols="50" ><?php echo $row['contact_us'] ?></textarea>
+                            </div>
+                            <button type="submit" id="btn-index" class="btn btn-primary">Lưu</button>
                         </form>
                     </div>
                 </div>
@@ -164,11 +167,15 @@
                 </div>
             </footer>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
-            crossorigin="anonymous"></script>
+        
+        <?php
+            } else {
+                header('location:login.php');
+            }
+        ?>
+    <?php
+    $conn->close();
+    ?>
 </body>
 
 </html>

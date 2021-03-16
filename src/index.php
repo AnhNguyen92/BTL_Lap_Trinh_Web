@@ -1,3 +1,7 @@
+<?php
+include 'admin/conn.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,20 +10,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/449b38c131.js" crossorigin="anonymous"></script>
+    <link href="css/style-index.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-
+    <?php
+    $sql = "select * from index_page where id=1";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    ?>
     <div class="container-fluid p-0">
         <header>
             <div class="header py-2">
-                <div class="container">
+                <div class="w-100 mx-0">
                     <div class="d-flex justify-content-between">
                         <div>
                             <div class="show-room">
@@ -39,7 +47,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="d-flex align-item-end">
+                        <div>
                             <div class="call-us">
                                 <i class="fa fa-phone"></i>
                                 <p>
@@ -48,6 +56,38 @@
                                 </p>
                             </div>
                         </div>
+                        <?php
+                            if (!isset($_SESSION["idLogin"])) {
+                                echo "
+                                <div class=\"d-flex align-items-center pr-3\">
+                                    <div>
+                                        <a style=\"color:white\" href=\"login.php\">Đăng nhập</a>
+                                        <p class=\"mx-2\">|</p>
+                                        <a style=\"color:white\" href=\"sign-up.php\">Đăng ký</a>
+                                    </div>
+                                </div>";
+                        } else {
+                            echo "
+                            <div class=\"d-flex col-4 align-items-center flex-row-reverse\">
+                                <div>
+                                    <ul class=\"navbar-nav ml-auto\">
+                                        <li class=\"nav-item dropdown\">
+                                            <a class=\"nav-link dropdown-toggle\" id=\"userDropdown\" href=\"#\" role=\"button\" data-toggle=\"dropdown\"
+                                            aria-haspopup=\"true\" aria-expanded=\"false\">
+                                            <i class=\"fas fa-user fa-fw pr-2\"></i><span class=\"text-white\">" . $_SESSION["username"] . "</span>
+                                            </a>
+                                            <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"userDropdown\">
+                                                <a class=\"dropdown-item\" href=\"user-info.php\">Thông tin cá nhân</a>
+                                                <div class=\"dropdown-divider\"></div>
+                                                <a class=\"dropdown-item\" href=\"login.html\">Đăng xuất</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            ";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -66,27 +106,30 @@
                     <div class="brand">MENU SITE</div>
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
                     <div class="menu-list">
-                        <ul id="menu-content" class="menu-content collapse out">
+                        <ul id="menu-content" class="menu-content collapse show">
                             <li class="active">
-                                <a href="#">Home</a>
+                                <a href="index.php">Trang chủ</a>
                             </li>
                             <li>
-                                <a href="#">UI Elements</a>
+                                <a href="about-us.php">Về chúng tôi</a>
                             </li>
                             <li>
-                                <a href="#">Services</a>
+                                <a href="gallery.php">Bộ sưu tập</a>
                             </li>
                             <li>
-                                <a href="#">New</a>
+                                <a href="pricing.php">Bảng giá</a>
                             </li>
                             <li>
-                                <a href="#">Profile</a>
-                            </li>
-                            <li>
-                                <a style="border:none;" href="#">Users</a>
+                                <a style="border:none;" href="contact-us.php">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div>
+
+                </div>
+                <div class="nav-last-item">
+                    <div class="overlay"></div>
                 </div>
             </div>
             <div class="main-content col-9">
@@ -101,13 +144,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block" src="images/da-lat-via-he.jpg" alt="First slide">
+                                    <img class="d-block" src="images/index/carousel/01.jpg" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block" src="images/da-lat-via-he.jpg" alt="Second slide">
+                                    <img class="d-block" src="images/index/carousel/02.jpg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block" src="images/da-lat-via-he.jpg" alt="Third slide">
+                                    <img class="d-block" src="images/index/carousel/03.jpg" alt="Third slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -122,60 +165,45 @@
                     </div>
                 </div>
                 <!-- who we are -->
-                <div class="mt-4">
+                <div class="mt-4 mb-5">
                     <article>
                         <div class="py-4 text-center">
                             <div class="title-tiret"></div>
                             <h1 class="article-title">WHO WE ARE</h1>
                         </div>
                         <div class="text-white">
-                            <p class="article-content">- People have been dreaming in stone for more than 2,000 year. ancient Tomans built roads
-                                that are still being used today!</P>
-                            <p class="article-content">- As more and more people discover the enjoyment of outdoor living, one of the top
-                                priotities is often the construcion of a driveway, walkway, patio, pool area, outdoor
-                                kitchen or a place where they can relax. This area becomes an attractive outdoor room
-                                for work or play. It is a place to read the Sunday paper, eat a meal, play with the
-                                children, enjoy the sun, or entertain friends.</p>
-                            <p class="article-content">- This outdoor living space is an important asset, increasing the value of a home as well
-                                as reclaim unused areas of lawn and garden. The selection of the color and texture of
-                                the pavers can be chosen to blend with the tone and scale of the hourse. A patio,
-                                walkway or garden wall can connect the house with various parts of the landscape and
-                                define spaces within the yard.</p>
-                            <p class="article-content">- Whether you entertain social gatherings, Sunday Night Football or relaxing family
-                                dinner by the pool, we can build an outdoor kitchen that accomodates all your needs.
-                                With our design and construction skills, we can work with any space, large or small,
-                                to build the outdoor experience that you and your family will enjoy for years to come.
-                                Our designed kitchens are made to fit into your outside hardscape. A patio kitchen
-                                can be built with many of the same amenities of an indoor kitchen along with wood
-                                grills and smokers.</p>
+                            <p class="article-content"><?php echo $row['who_we_are_p1'] ?></p>
+                            <p class="article-content"><?php echo $row['who_we_are_p2'] ?></p>
+                            <p class="article-content"><?php echo $row['who_we_are_p3'] ?></p>
+                            <p class="article-content"><?php echo $row['who_we_are_p4'] ?></p>
                         </div>
                     </article>
                 </div>
                 <!-- brick process -->
-                <div class="my-4">
+                <div class="d-flex">
+                    <div class="col-4 p-0"><img class="w-100" src="images/index/who-we-are/01.jpg" alt="image"></div>
+                    <div class="col-4 p-0"><img class="w-100" src="images/index/who-we-are/02.jpg" alt="image"></div>
+                    <div class="col-4 p-0"><img class="w-100" src="images/index/who-we-are/03.jpg" alt="image"></div>
                 </div>
                 <!-- our service -->
-                <div class="my-4 our-service">
+                <div class="our-service">
                     <article>
                         <div class="py-4 text-center">
                             <div class="title-tiret"></div>
                             <h1 class="article-title">OUR SERVICES</h1>
                         </div>
                         <div class="text-center text-white">
-                            <p class="article-content">
-                                We offer elegant products at affordable prices. We are proud to carry the complete line of FlagStone
-                            </p>
-                            <p class="article-content">Paver which can be viewed by 
-                                <a href="#" target="_blank" class="service-link">clicking here</a>
+                            <p class="article-content"><?php echo $row['our_service'] ?></p>
+                            <a href="service.php" target="_blank" class="service-link">clicking here</a>
                             </p>
                         </div>
                     </article>
                     <div class="service-content">
-                        <div class="service=img-lst row px-5">
+                        <div class="service=img-lst d-flex px-auto">
                             <div class="service-img-item col-4">
                                 <div>
-                                    <div class="service-img-wrapper" style="padding:5px; background-color:#ffffff;">
-                                        <img style="width: 100%;" src="images/da-lat-via-he.jpg" alt="image">
+                                    <div class="service-img-wrapper">
+                                        <img src="images/index/our-service/01.jpg" alt="image">
                                     </div>
                                 </div>
                                 <div class="service-item-text">
@@ -184,8 +212,8 @@
                             </div>
                             <div class="service-img-item col-4">
                                 <div>
-                                    <div class="service-img-wrapper" style="padding:5px; background-color:#ffffff;">
-                                        <img style="width: 100%;" src="images/da-lat-via-he.jpg" alt="image">
+                                    <div class="service-img-wrapper">
+                                        <img src="images/index/our-service/02.jpg" alt="image">
                                     </div>
                                 </div>
                                 <div>
@@ -194,8 +222,8 @@
                             </div>
                             <div class="service-img-item col-4">
                                 <div>
-                                    <div class="service-img-wrapper" style="padding:5px; background-color:#ffffff;">
-                                        <img style="width: 100%;" src="images/da-lat-via-he.jpg" alt="image">
+                                    <div class="service-img-wrapper">
+                                        <img src="images/index/our-service/03.jpg" alt="image">
                                     </div>
                                 </div>
                                 <div>
@@ -204,7 +232,7 @@
                             </div>
                         </div>
                         <div class="action-link">
-                            <a href="#" target="_blank">VIEW GALLERY</a>
+                            <a href="gallery.php" target="_blank">VIEW GALLERY</a>
                         </div>
                     </div>
                 </div>
@@ -216,42 +244,44 @@
                             <h1 class="article-title">PRICING</h1>
                         </div>
                         <div class="text-center text-white">
-                            <p class="article-content col-10 mx-auto">
-                                With amazing pricing, its now time to get that tired old driveway replaced with Elegant
-                                Brick Pavers. The timeless look and durability of quality brick pavers your home will
-                                get the attention. It deserves along with that curb appeal it needs. Replacing your
-                                Driveway with Brick Pavers doesn't just make it look better it also adds a longer
-                                life than concrete without cracking or fading.
-                            </p>
+                            <p class="article-content col-10 mx-auto"><?php echo $row['pricing'] ?></p>
                         </div>
                     </article>
-                    <div class=" col-8 mx-auto" style="width:615px;height:440px;">
-                        <div style="width: 220px;border-top: 220px solid #f9c937;border-right: 220px solid transparent;">
-
+                    <div class=" col-8 mx-auto price-offer-block">
+                        <div class="outer-triangle">
                         </div>
-                    </div>
-                    <div class="col-8 my-4 mx-auto d-flex d-inline">
-                        <div style="padding: 2px;background-color:#ffffff;">
-                            <div>
-                                <img src="images/gach-lat-offer.jpg" alt="">
+                        <div class="middle-border">
+                            <div class="price-offer-bg">
+                                <div class="col-8 pt-5 po-detail">
+                                    <span class="po-tip">As low as</span>
+                                    <span class="po-unit">$</span>
+                                    <span class="po-price">6</span>
+                                    <span class="po-price-duration">.00</span>
+                                    <div class="col-8 ml-auto text-right fs-40">Per Sq/Ft</div>
+                                </div>
+                                <div class="mx-4">
+                                    <ul class="dashes">
+                                        <li>Including Installation and Materials</li>
+                                        <li>Custom brick paver hardscape designs: Pools, Patios, Walkways, Driveways, Outdoor Kitchens, and even your Porch or Hot Tub Area.</li>
+                                        <li>FREE consultations and guaranteed pricing contracts knowing your projects exact cost just got easier.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>    
-                        <div style="position: relative;z-index: 11;left: -609px;top: -4px;">
-                            <div class="triangle"></div>
-                            <div class="price-offer">We offer</div>
+                            <div class="rotate-wrapper">
+                                <span class="rotate">We Offer</span>
+                            </div>
                         </div>
-                        
                     </div>
                     <div>
                         <div></div>
                         <div class="action-link">
-                            <a href="#" target="_blank">VIEW FULL PRICING GUIDE</a>
+                            <a href="pricing.php" target="_blank">VIEW FULL PRICING GUIDE</a>
                         </div>
                     </div>
                 </div>
                 <!-- contact us -->
-                <div class="my-4 contact-us" style="background-color: #181818;">
-                    <div style="background-color: #f9c937;height:55px; text-align:center;line-height:55px;font-size:20px;font-weight:bold;">
+                <div class="contact-us-info">
+                    <div class="contact-number">
                         Call Us NOW: 727 - 342 - 3241
                     </div>
                     <article>
@@ -261,40 +291,38 @@
                             <h3 class="contact-us-tip">FOR FREE SAME DAY ESTIMATES</h3>
                         </div>
                         <div class="text-center text-white">
-                            <p class="article-content col-10 mx-auto">
-                                What to expect at your paver estimate, we will be able to tell you the exact price to
-                                complete your job without surprise and extras. Our qualified staff will offer you a
-                                price guarantee and schedule your project to be completed on a date that works for 
-                                you. We tailor to our customers and make adding new hardscapes to your home as easy and
-                                affordable as possible.
-                            </p>
+                            <p class="article-content col-10 mx-auto"><?php echo $row['contact_us'] ?></p>
                         </div>
                     </article>
                     <div>
                         <div></div>
                         <div class="action-link">
-                            <a href="#" target="_blank">CONTACT US NOW</a>
+                            <a href="contact.php" target="_blank">CONTACT US NOW</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- footer -->
-        <footer class="footer p-5">
-            <div><h3>GET SOCIAL WITH US</h3></div>
-            <div>
-                <ul>
-                    <li><a class="icoFacebook" href="https://www.facebook.com/priyank.agarwal1205" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="icoInstagram" href="https://www.instagram.com/priyank.agarwal1205/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                    <li><a class="icoTwitter" href="https://twitter.com/priyank1205" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="icoLinkedin" href="https://www.linkedin.com/in/priyank1205" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a class="icoTwitter" href="https://www.pinterest.com" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a class="icoLinkedin" href="https://www.snapchat.com" title="Snapchat"><i class="fa fa-snapchat"></i></a></li>
-                </ul>
-            </div>
-        </footer>
     </div>
-    
+    <!-- footer -->
+    <footer class="footer p-5">
+        <div class="pb-4">
+            <h3>GET SOCIAL WITH US</h3>
+        </div>
+        <div>
+            <ul>
+                <li><a class="icoFacebook" href="https://www.facebook.com" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="icoInstagram" href="https://www.instagram.com" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="icoTwitter" href="https://twitter.com" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="icoLinkedin" href="https://www.linkedin.com" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="icoTwitter" href="https://www.pinterest.com" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                <li><a class="icoLinkedin" href="https://www.snapchat.com" title="Snapchat"><i class="fa fa-snapchat"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <?php
+    $conn->close();
+    ?>
 </body>
 
 </html>

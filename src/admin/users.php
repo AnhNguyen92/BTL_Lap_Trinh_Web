@@ -1,14 +1,14 @@
 <?php
 include 'conn.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Quản lý thành viên - Bài tập lớn Lập trình Web - 2020-2021</title>
+    <title>Quản lý Trang thành viên - Bài tập lớn Lập trình Web - 2020-2021</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,59 +16,25 @@ include 'conn.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <script src="../js/ajax.js"></script>
     <link href="../css/style-admin.css" rel="stylesheet" type="text/css">
-        let url = "http://localhost:8000/";
-    </script>
-    
-    <style>
-        .admin-title {
-            background-color: #d8eeeb;
-            margin: 0;
-        }
-
-        .nav-search {
-            background-color: #f7f7f7;
-        }
-
-        .btn-search {
-            background-color: #77b71b;
-        }
-
-        .add-account a,
-        i {
-            color: #86a3f5;
-        }
-
-        .add-account a:hover {
-            text-decoration: none;
-        }
-
-        .pagination {
-            margin: 0;
-        }
-
-        td.action {
-            vertical-align: middle;
-            text-align: center;
-        }
-        td a:hover {
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body class="sb-nav-fixed">
+    <?php
+        if (isset($_SESSION["username"])) {
+    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Company Introduction</a>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user fa-fw pr-2"></i><span>Quang Cảnh</span></a>
+                    <i class="fas fa-user fa-fw pr-2"></i><span class="text-white">
+                    <?php echo $_SESSION["username"]; ?></span></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Setting</a>
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Cài đặt</a>
+                    <a class="dropdown-item" href="#">Hồ sơ cá nhân</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="logout.php">Đăng xuất</a>
                 </div>
             </li>
         </ul>
@@ -79,38 +45,34 @@ include 'conn.php';
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" style="color:#fff;" href="users.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
-                            User
+                            Người dùng
                         </a>
                         <div class="sb-sidenav-menu-heading">Website</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="index.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
-                            Index
+                            Trang chủ
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="about-us.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Intro
+                            Về chúng tôi
                         </a>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="service-info.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>
-                            Product Service
+                            Thông tin dịch vụ
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="process-paving.php">
+                            <div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>
+                            Quy trình lát gạch
+                        </a>
+                        <a class="nav-link" href="pricing.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Processing
+                            Bảng giá
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="contact-us.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-picture-o"></i></div>
-                            Gallery
-                        </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fa fa-credit-card"></i></div>
-                            Pricing
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fa fa-map"></i></div>
-                            Contact
+                            Liên hệ
                         </a>
                     </div>
                 </div>
@@ -160,8 +122,7 @@ include 'conn.php';
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
-                            Danh sách tài khoản
+                            <i class="fas fa-table mr-1"></i>Danh sách tài khoản
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -205,13 +166,18 @@ include 'conn.php';
                                                             echo ($row["status"] == 'active') ? "Kích hoạt" : "Chưa kích hoạt";
                                                         ?>
                                                         </td>
-                                                    <td><?php echo $row["role"]; ?></td>
+                                                    <td>
+                                                        <?php 
+                                                            echo ($row["role"] == 'admin') ? "Quản trị" : "Người dùng"; 
+                                                        ?>
+                                                    </td>
                                                     <td style="text-align: center;">
                                                         <a href="#editUserModal" class="edit mr-3" data-toggle="modal">
                                                             <i class="fas fa-edit update" 
                                                             data-toggle="tooltip"
                                                             data-id="<?php echo $row["id"]; ?>" 
                                                             data-username="<?php echo $row["username"]; ?>" 
+                                                            data-password="<?php echo $row["password"]; ?>"
                                                             data-lname="<?php echo $row["last_name"]; ?>"
                                                             data-fname="<?php echo $row["first_name"]; ?>"
                                                             data-gender="<?php echo $row["gender"]; ?>"
@@ -220,7 +186,9 @@ include 'conn.php';
                                                             data-role="<?php echo $row["role"]; ?>"
                                                             title="Chỉnh sửa"></i>
                                                         </a>
-                                                        <a href="#deleteUserModal" class="delete text-danger" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="far fa-trash-alt" data-toggle="tooltip" title="Xóa"></i></a>
+                                                        <a href="#deleteUserModal" class="delete text-danger" data-id="<?php echo $row["id"]; ?>" data-toggle="modal">
+                                                            <i class="far fa-trash-alt" data-id="<?php echo $row["id"]; ?>" data-toggle="tooltip" title="Xóa"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -250,15 +218,16 @@ include 'conn.php';
                                     <button type="button" class="close ml-0" data-dismiss="modal" aria-hidden="true">×</button>
                                 </div>
                                 <div class="modal-body">
+                                    <input type="hidden" id="id" name="id" class="form-control" required>
                                     <div class="form-group">
                                         <label>Tài khoản <span class="text-danger">*</span></label>
                                         <input type="text" id="username" name="username" minlength="5" maxlength="40" class="form-control" required>
-                                        <small id="err-username" class="d-none err-username form-text text-danger">Tên xe phải có độ dài từ 6 đến 100 ký tự!</small>
+                                        <small id="err-username" class="d-none err-username form-text text-danger">Tài khoản phải có độ dài từ 6 đến 100 ký tự!</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Mật khẩu <span class="text-danger">*</span></label>
                                         <input type="password" id="password" name="password" minlength="5" maxlength="40" class="form-control" required>
-                                        <small id="err-password" class="d-none err-password form-text text-danger">Tên xe phải có độ dài từ 6 đến 100 ký tự!</small>
+                                        <small id="err-password" class="d-none err-password form-text text-danger">Mật khẩu phải có độ dài từ 6 đến 100 ký tự!</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Họ</label>
@@ -268,29 +237,27 @@ include 'conn.php';
                                         <label>Tên</label>
                                         <input type="text" id="fname" name="first_name" class="form-control">
                                     </div>
-                                    
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Ngày sinh:</label>
-                                            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                <input class="form-control" name="birthday" id="birthday" type="date">
+                                            <div >
+                                                <input class="form-control" placeholder="dd-mm-yyyy" name="birthday" id="birthday" type="date">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Giới tính</label>
                                             <select class="custom-select" name="gender" id="gender">
-                                                <option value="male">Nam</option>
+                                                <option value="male" >Nam</option>
                                                 <option value="female">Nữ</option>
                                                 <option value="other">Khác</option>
                                             </select>
                                         </div>
-                                        
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Quyền</label>
                                             <select class="custom-select" name="role" id="role">
-                                                <option value="admin">Quản trị</option>
+                                                <option value="admin" >Quản trị</option>
                                                 <option value="regular_user" selected>Người dùng</option>
                                             </select>
                                         </div>
@@ -326,45 +293,59 @@ include 'conn.php';
                                     <div class="form-group">
                                         <label>Tài khoản <span class="text-danger">*</span></label>
                                         <input type="text" id="username_u" name="username" readonly minlength="6" maxlength="100" class="form-control">
+                                        <small id="err-username-u" class="d-none err-username form-text text-danger">Tài khoản phải có độ dài từ 6 đến 100 ký tự!</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Mật khẩu <span class="text-danger">*</span></label>
                                         <input type="password" id="password_u" name="password" minlength="6" maxlength="100" class="form-control" required>
+                                        <small id="err-password-u" class="d-none err-password form-text text-danger">Mật khẩu phải có độ dài từ 6 đến 100 ký tự!</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Họ</label>
-                                        <input type="text" id="lname_u" class="form-control">
+                                        <input type="text" name="last_name" id="lname_u" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Tên</label>
-                                        <input type="text" id="fname-u" name="first_name" class="form-control">
+                                        <input type="text" id="fname_u" name="first_name" class="form-control">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Ngày sinh:</label>
-                                        <div id="datepicker" name="birthday_u" class="input-group date" data-date-format="dd-mm-yyyy">
-                                            <input class="form-control" type="date">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label>Ngày sinh:</label>
+                                            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                <input class="form-control" name="birthday" id="birthday_u" type="date">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Giới tính</label>
+                                            <select class="custom-select" name="gender" id="gender_u">
+                                                <option value="male">Nam</option>
+                                                <option value="female">Nữ</option>
+                                                <option value="other">Khác</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Giới tính</label>
-                                        <select class="custom-select" name="gender_u">
-                                            <option value="male">Nam</option>
-                                            <option value="female">Nữ</option>
-                                            <option value="other">Khác</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Quyền</label>
-                                        <select class="custom-select" name="role_u">
-                                            <option value="admin">Quản trị</option>
-                                            <option value="regular_user" selected>Người dùng</option>
-                                        </select>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label>Quyền</label>
+                                            <select class="custom-select" name="role" id="role_u">
+                                                <option value="admin">Quản trị</option>
+                                                <option value="regular_user">Người dùng</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Trạng thái</label>
+                                            <select class="custom-select" name="status" id="status_u">
+                                                <option value="active">Kích hoạt</option>
+                                                <option value="in_active">Chưa kích hoạt</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <input type="hidden" value="2" name="type">
                                         <input type="button" class="btn btn-light" data-dismiss="modal" value="Hủy bỏ">
                                         <button type="button" class="btn btn-info" id="update">Cập nhật</button>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -375,7 +356,7 @@ include 'conn.php';
                         <div class="modal-content">
                             <form>
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Xóa tài khoản</h4>
+                                    <h4 class="modal-title">Xóa thông tin người dùng</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 </div>
                                 <div class="modal-body">
@@ -406,7 +387,11 @@ include 'conn.php';
             </footer>
         </div>
     </div>
-    
+    <?php
+    } else {
+        header('location:login.php');
+    }
+    ?>
     <?php
     $conn->close();
     ?>

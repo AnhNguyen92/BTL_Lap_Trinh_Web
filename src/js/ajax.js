@@ -19,7 +19,6 @@ $(document).on('click','#btn-add',function(e) {
             type: "post",
             url: "function.php",
             success: function(result) {
-                console.log(result);
                 let dataResult = JSON.parse(result);
                 if(dataResult.statusCode==200) {
                     $('#addUserModal').modal('hide');
@@ -37,23 +36,35 @@ $(document).on('click','#btn-add',function(e) {
 $(document).on('click','.update',function(e) {
     let id = $(this).attr("data-id");
     let name = $(this).attr("data-username");
-    let year = $(this).attr("data-password");
+    let password = $(this).attr("data-password");
+    let lname = $(this).attr("data-lname");
+    let fname = $(this).attr("data-fname");
+    let gender = $(this).attr("data-gender");
+    let birthday = $(this).attr("data-birthday");
+    let status = $(this).attr("data-status");
+    let role = $(this).attr("data-role");
     $('#id_u').val(id);
     $('#username_u').val(name);
-    $('#year_u').val(year);
+    $('#password_u').val(password);
+    $('#lname_u').val(lname);
+    $('#fname_u').val(fname);
+    $('#gender_u').val(gender);
+    $('#birthday_u').val(birthday);
+    $('#status_u').val(status);
+    $('#role_u').val(role);
 });
 
 $(document).on('click','#update',function(e) {
     $('#err-username-u').removeClass("d-block").addClass("d-none");
     $('#err-password-u').removeClass("d-block").addClass("d-none");
-    let name = $('#username_u').val().trim();
-    let year = $('#password_u').val();
+    let username = $('#username_u').val().trim();
+    let password = $('#password_u').val();
     let validInput = true;
-    if (name.length < 6 || username.length > 100 ) {
+    if (username.length < 6 || username.length > 100 ) {
         $('#err-username-u').removeClass("d-none").addClass("d-block");
         validInput = false;
     }
-    if (name.length < 6 || username.length > 100 ) {
+    if (password.length < 6 || password.length > 100 ) {
         $('#err-password-u').removeClass("d-none").addClass("d-block");
         validInput = false;
     }
@@ -65,25 +76,25 @@ $(document).on('click','#update',function(e) {
             type: "post",
             url: "function.php",
             success: function(result){
-                    let dataResult = JSON.parse(result);
-                    if(dataResult.statusCode==200){
-                        $('#editUserModal').modal('hide');
-                        alert('Cập nhật thành công!'); 
-                        location.reload();						
-                    }
-                    else if(dataResult.statusCode==201){
-                        alert(dataResult);
-                    }
+                let dataResult = JSON.parse(result);
+                if(dataResult.statusCode==200){
+                    $('#editUserModal').modal('hide');
+                    alert('Cập nhật thành công!'); 
+                    location.reload();						
+                }
+                else if(dataResult.statusCode==201){
+                    alert(dataResult);
+                }
             }
         });
     }
     
 });
 
-$(document).on("click", ".delete", function() { 
+$(document).on("click", ".delete", function() {
     let id=$(this).attr("data-id");
     $('#id_d').val(id);
-    
+    $('#deleteUserModal').modal('show');
 });
 
 $(document).on("click", "#delete", function() { 
@@ -96,9 +107,27 @@ $(document).on("click", "#delete", function() {
             id: $("#id_d").val()
         },
         success: function(dataResult){
-                $('#deleteUserrModal').modal('hide');
+                $('#deleteUserModal').modal('hide');
                 $("#"+dataResult).remove();
         
+        }
+    });
+});
+
+$(document).on('click','#btn-index',function(e) {
+    e.prevenDefault();
+    let data = $("#indexFrm").serialize();
+
+    $.ajax({
+        data: data,
+        type: 4,
+        url: "function.php",
+        success: function(result){
+            let dataResult = JSON.parse(result);
+            if(dataResult.statusCode==200) {
+                alert('Cập nhật thành công!'); 
+                location.reload();						
+            }
         }
     });
 });
