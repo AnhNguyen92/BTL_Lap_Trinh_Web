@@ -23,7 +23,7 @@ session_start();
         if (isset($_SESSION["username"])) {
     ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Company Introduction</a>
+        <a class="navbar-brand" href="index.php">Company Introduction</a>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
