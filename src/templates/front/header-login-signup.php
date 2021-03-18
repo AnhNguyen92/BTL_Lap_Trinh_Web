@@ -78,19 +78,19 @@
                     <div class="menu-list">
                         <ul id="menu-content" class="menu-content">
                             <li class="active">
-                                <a href="#">Home</a>
+                                <a href="index.php">Trang chủ</a>
                             </li>
                             <li>
-                                <a href="#">About Us</a>
+                                <a href="about-us.php">About Us</a>
                             </li>
                             <li>
-                                <a href="#">Gallery</a>
+                                <a href="gallery.php">Gallery</a>
                             </li>
                             <li>
-                                <a href="#">Pricing</a>
+                                <a href="pricing.php">Pricing</a>
                             </li>
                             <li>
-                                <a href="#">Contact Us</a>
+                                <a href="contact-us.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
